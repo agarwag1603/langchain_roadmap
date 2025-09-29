@@ -1,0 +1,7 @@
+RAG (Retrieval-Augmented Generation) is an AI technique that combines a large language model (LLM) with an external knowledge base to produce more accurate and contextual answers. 
+
+Instead of solely relying on its pre-trained knowledge, a RAG system first retrieves relevant information from trusted documents or databases and then uses that retrieved context to generate a response. 
+
+This allows LLMs to access up-to-date or domain-specific information without constant retraining, making them more reliable for various applications like customer service, internal knowledge management, and market research.
+
+In essence, RAG makes LLMs more useful and reliable by connecting them to external sources of knowledge, ensuring their responses are both intelligent and grounded in reality.
