@@ -8,10 +8,16 @@ import os
 
 load_dotenv()
 
-# Set environment variables (if not already set in your shell)
-os.environ["OPENAI_API_KEY"] = os.getenv("OPEN_AI_API_KEY")
+# # Set environment variables (if not already set in your shell)
+# os.environ["OPENAI_API_KEY"] = os.getenv("OPEN_AI_API_KEY")
+# os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
+# os.environ["LANGCHAIN_PROJECT"] = os.getenv("LANGCHAIN_PROJECT")
+# os.environ["LANGCHAIN_TRACING_V2"] = os.getenv("LANGCHAIN_TRACING_V2")
+# os.environ["LANGCHAIN_ENDPOINT"] = os.getenv("LANGCHAIN_ENDPOINT")
 
-gpt_llm = ChatOpenAI(model="gpt-5-mini",api_key=os.environ["OPENAI_API_KEY"])
+
+#gpt_llm = ChatOpenAI(model="gpt-5-mini",api_key=os.environ["OPENAI_API_KEY"])
+gpt_llm = ChatOpenAI(model="gpt-5-mini")
 
 trimmer=trim_messages(
     max_tokens=70,

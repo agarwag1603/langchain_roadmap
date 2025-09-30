@@ -27,6 +27,6 @@ config={"configurable":{"session_id":"1234"}}
 response=message_history.invoke([HumanMessage(content="Hi, I am Gaurav, I am working as an automation engineer")],config=config)
 print(response)
 print(80*"--")
-response2=message_history.invoke([HumanMessage(content="who am i?")],config=config)
-print(response2)
+continue_response=message_history.invoke([HumanMessage(content="who am i?")],config=config)
+print(continue_response)
 

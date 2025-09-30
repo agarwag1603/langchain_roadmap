@@ -6,7 +6,6 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains import create_retrieval_chain
 from langchain_community.vectorstores import Chroma
 from langchain_core.prompts import ChatPromptTemplate
-import streamlit as st
 from dotenv import load_dotenv
 import os
 
@@ -18,19 +17,8 @@ os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
 os.environ["LANGCHAIN_PROJECT"] = os.getenv("LANGCHAIN_PROJECT")
 os.environ["LANGCHAIN_TRACING_V2"] = os.getenv("LANGCHAIN_TRACING_V2")
 
-st.set_page_config(page_title="PDF talker")
 
-st.title("Upload a PDF")
-
-# File uploader widget
-uploaded_file = st.file_uploader("Upload a PDF file", type=["pdf"])
-
-if uploaded_file is not None:
-    # Get the file name
-    file_name = uploaded_file.name
-    st.success(f"✅ You uploaded: {file_name}")
-
-attention_document_loader=PyPDFLoader(file_name)
+attention_document_loader=PyPDFLoader("8-PDF_Rag/1706.03762v7.pdf")
 attention_document=attention_document_loader.load()
 
 attention_splitter=RecursiveCharacterTextSplitter(chunk_size = 500, chunk_overlap=50)
