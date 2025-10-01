@@ -12,15 +12,6 @@ import tempfile
 
 load_dotenv()
 
-# Set environment variables (if not already set in your shell)
-os.environ["OPENAI_API_KEY"] = os.getenv("OPEN_AI_API_KEY")
-os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
-os.environ["LANGCHAIN_PROJECT"] = os.getenv("LANGCHAIN_PROJECT")
-os.environ["LANGCHAIN_TRACING_V2"] = os.getenv("LANGCHAIN_TRACING_V2")
-os.environ["LANGCHAIN_ENDPOINT"] = os.getenv("LANGCHAIN_ENDPOINT")
-
-
-
 st.set_page_config(page_title="PDF talker")
 
 st.title("Upload a PDF")
@@ -44,8 +35,8 @@ if uploaded_file is not None:
     attention_splitted_document=attention_splitter.split_documents(attention_document)
 
 
-    gpt_llm = ChatOpenAI(model="gpt-5-mini",api_key=os.environ["OPENAI_API_KEY"])
-    openai_embedding = OpenAIEmbeddings(model="text-embedding-3-small",api_key=os.environ["OPENAI_API_KEY"],dimensions=1024)
+    gpt_llm = ChatOpenAI(model="gpt-5-mini")
+    openai_embedding = OpenAIEmbeddings(model="text-embedding-3-small",dimensions=1024)
 
     chromdb=Chroma.from_documents(attention_splitted_document,openai_embedding)
     chromdb_retrieved_docs=chromdb.as_retriever(search_kwargs={"k": 3})

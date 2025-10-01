@@ -8,10 +8,7 @@ import os
 
 load_dotenv()
 
-# Set environment variables (if not already set in your shell)
-os.environ["OPENAI_API_KEY"] = os.getenv("OPEN_AI_API_KEY")
-
-gpt_llm = ChatOpenAI(model="gpt-5-mini",api_key=os.environ["OPENAI_API_KEY"])
+gpt_llm = ChatOpenAI(model="gpt-5-mini")
 
 store={}
 

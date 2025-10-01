@@ -7,10 +7,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-OPEN_AI_API_KEY = os.getenv("OPEN_AI_API_KEY")
-embeddings=OpenAIEmbeddings(model="text-embedding-3-small",api_key=OPEN_AI_API_KEY,dimensions=1024)
+embeddings=OpenAIEmbeddings(model="text-embedding-3-small",dimensions=1024)
 
-rag_loader=TextLoader("5-Embedding/rag.txt")
+rag_loader=TextLoader("Langchain_Practice/5-Embedding/rag.txt")
 rag_documents=rag_loader.load()
 
 rag_splitter=RecursiveCharacterTextSplitter(chunk_size=400, chunk_overlap=30)

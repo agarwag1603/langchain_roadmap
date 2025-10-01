@@ -6,13 +6,7 @@ import os
 
 load_dotenv()
 
-# Set environment variables (if not already set in your shell)
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
-os.environ["LANGCHAIN_PROJECT"] = os.getenv("LANGCHAIN_PROJECT")
-os.environ["LANGCHAIN_TRACING_V2"] = os.getenv("LANGCHAIN_TRACING_V2")
-
-gpt_llm=ChatOpenAI(model="gpt-5-mini",api_key=os.environ["OPENAI_API_KEY"])
+gpt_llm=ChatOpenAI(model="gpt-5-mini")
 
 first_system_message="""
 You are a chemical engineer, your role is to provide answer ONLY related to it.
