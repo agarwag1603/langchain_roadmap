@@ -11,7 +11,7 @@ pdf_loader=PyPDFLoader("Langchain_Practice/17-StuffandMapReduceSummary/Speeches.
 pdf_documents=pdf_loader.load()
 print(pdf_documents)
 
-splitted_doc=RecursiveCharacterTextSplitter(chunk_size=300, chunk_overlap =50).split_documents(pdf_documents)
+splitted_doc=RecursiveCharacterTextSplitter(chunk_size=300, chunk_overlap=50).split_documents(pdf_documents)
 print(splitted_doc)
 
 gpt_llm = ChatOpenAI(model="gpt-4o-mini", streaming=False)
