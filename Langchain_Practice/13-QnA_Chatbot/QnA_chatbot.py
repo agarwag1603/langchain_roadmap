@@ -37,11 +37,15 @@ Keep the answers very concise and do not give vague responses.
 contextualize_q_system_prompt=(
     "Given a chat history and latest user questions"
     "which might reference context in the chat history,"
-    "Just formulate the standalone question which can be understood without chat history" 
+    "Just formulate the standalone question which can be understood without chat history " 
     "DO NOT answer the question, just reformulate"
 )
 
-                
+qa_prompt=ChatPromptTemplate.from_messages([
+    ("system",system_prompt),
+    MessagesPlaceholder("chat_history"),
+    ("human","{input}"),
+])               
 
 contextualize_q_prompt=ChatPromptTemplate.from_messages([
     ("system",contextualize_q_system_prompt),
@@ -49,20 +53,14 @@ contextualize_q_prompt=ChatPromptTemplate.from_messages([
     ("human","{input}"),
 ])
 
-
 retriver_history_chain = create_history_aware_retriever(gpt_llm,chromaretriever,contextualize_q_prompt)
-
-qa_prompt=ChatPromptTemplate.from_messages([
-    ("system",system_prompt),
-    MessagesPlaceholder("chat_history"),
-    ("human","{input}"),
-])
 
 document_chain=create_stuff_documents_chain(gpt_llm,qa_prompt)
 
 rag_chain = create_retrieval_chain(retriver_history_chain,document_chain)
 
 chat_history=[]
+
 question="What is commit tags?"
 response=rag_chain.invoke({"input":question,"chat_history":chat_history})
 print(response)

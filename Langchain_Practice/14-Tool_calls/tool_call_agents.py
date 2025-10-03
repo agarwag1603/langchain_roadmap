@@ -16,7 +16,7 @@ load_dotenv()
 
 gpt_llm = ChatOpenAI(model="gpt-4o-mini", streaming=False)
 
-rental_pdf=PyPDFLoader("14-Tool_calls/RentalConditions.pdf")
+rental_pdf=PyPDFLoader("Langchain_Practice/14-Tool_calls/RentalConditions.pdf")
 loaded_rental_pdf=rental_pdf.load()
 
 splitted_doc=RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
@@ -43,7 +43,7 @@ prompt = ChatPromptTemplate.from_messages(
 agent = create_openai_tools_agent(gpt_llm,tools,prompt)
 
 agent_executor=AgentExecutor(agent=agent, tools=tools, verbose=True)
-agent_executor.invoke({"input":"what is the sport cricket??"})
+agent_executor.invoke({"input":"can you tell me about transformers used in gpt?"})
 
 
 

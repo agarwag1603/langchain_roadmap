@@ -7,11 +7,11 @@ from langchain.chains import create_retrieval_chain
 from langchain_community.vectorstores import Chroma
 from langchain_core.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
-import os
 
 load_dotenv()
 
 attention_document_loader=PyPDFLoader("Langchain_Practice/8-PDF_Rag/1706.03762v7.pdf")
+
 attention_document=attention_document_loader.load()
 
 attention_splitter=RecursiveCharacterTextSplitter(chunk_size = 500, chunk_overlap=50)
@@ -40,7 +40,7 @@ print(80*"==")
 print("Retrieval_chain")
 print(retrieval_chain)
 print(80*"==")
-response=retrieval_chain.invoke({"input":"what is self attention layer used for?"})
+response=retrieval_chain.invoke({"input":"what is self attention layer?"})
 print("Retrieval_answer")
 print(response['answer'])
 print(80*"==")

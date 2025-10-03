@@ -11,7 +11,7 @@ chat_prompt = ChatPromptTemplate.from_messages([
     ("human","{user_input}")]
     )
 
-chain =chat_prompt | gpt_llm
+chain=chat_prompt | gpt_llm
 
 response =chain.invoke({"sports":"Cricket","user_input":"Who has hit the most number of ODI centuries."})
 
