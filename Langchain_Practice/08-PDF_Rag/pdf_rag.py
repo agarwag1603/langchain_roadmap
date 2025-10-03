@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-attention_document_loader=PyPDFLoader("Langchain_Practice/8-PDF_Rag/1706.03762v7.pdf")
+attention_document_loader=PyPDFLoader("Langchain_Practice/08-PDF_Rag/1706.03762v7.pdf")
 
 attention_document=attention_document_loader.load()
 

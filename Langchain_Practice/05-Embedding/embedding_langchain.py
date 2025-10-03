@@ -9,7 +9,7 @@ load_dotenv()
 
 embeddings=OpenAIEmbeddings(model="text-embedding-3-small",dimensions=1024)
 
-rag_loader=TextLoader("Langchain_Practice/5-Embedding/rag.txt")
+rag_loader=TextLoader("Langchain_Practice/05-Embedding/rag.txt")
 rag_documents=rag_loader.load()
 
 rag_splitter=RecursiveCharacterTextSplitter(chunk_size=400, chunk_overlap=30)

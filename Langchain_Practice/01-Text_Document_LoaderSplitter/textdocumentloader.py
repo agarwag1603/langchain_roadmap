@@ -2,7 +2,7 @@
 from langchain_community.document_loaders import TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-loader= TextLoader("sample.txt")
+loader= TextLoader("Langchain_Practice/01-Text_Document_LoaderSplitter/sample.txt")
 text_documents=loader.load()
 print(text_documents)
 print(50*"*")
