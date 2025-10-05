@@ -25,7 +25,7 @@ prompt=ChatPromptTemplate.from_messages([
 
 output_parser=StrOutputParser()
 
-chain = prompt | gpt_llm | output_parser
+chain = prompt | gpt_llm 
 
 llm_response=chain.invoke({"input":"What is the chemical formula of Benzene?","system_message":first_system_message})
 print(llm_response)
