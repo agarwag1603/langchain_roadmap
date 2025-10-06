@@ -31,3 +31,37 @@ chain = prompt_template | gpt_llm | parser
 structured_response = chain.invoke({"race": "Indian"})
 
 print(structured_response)
+
+
+################################################################################################################################################
+##Have added chat prompt template as well to have the output with pydanticoutputparser
+
+from langchain_openai import ChatOpenAI
+from dotenv import load_dotenv
+from langchain_core.prompts import ChatPromptTemplate
+from pydantic import BaseModel, Field
+from langchain_core.output_parsers import PydanticOutputParser
+
+load_dotenv()
+
+gpt_llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+
+class UserInformation(BaseModel):
+    name: str = Field(description="Name of the personality")
+    age: int = Field(description="Age of the personality")
+    birthplace: str = Field(description="Birthplace of the personality")
+
+parser = PydanticOutputParser(pydantic_object=UserInformation)
+
+chat_prompt = ChatPromptTemplate.from_messages([
+    ("system", "You are a helpful AI that invents fictional personal details."),
+    ("human", "Generate a fictional name, age, and birthplace for someone of race: {race}."),
+    ("human", "Respond in this format: {format}")
+])
+
+chat_prompt = chat_prompt.partial(format=parser.get_format_instructions())
+
+chain = chat_prompt | gpt_llm | parser
+
+structured_response = chain.invoke({"race": "Indian"})
+print(structured_response)
