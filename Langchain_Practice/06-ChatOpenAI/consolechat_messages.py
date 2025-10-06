@@ -1,4 +1,4 @@
-#This is used for logging system, human, AI messages properly in a list
+#This is used for logging system, human, AI messages properly in a list as a chatbot history
 
 from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
