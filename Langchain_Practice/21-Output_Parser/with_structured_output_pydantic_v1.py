@@ -13,8 +13,7 @@ class UserInformation(BaseModel):
     birthplace: str = Field(description="Birthplace of the personality")
 
 chat_prompt = ChatPromptTemplate.from_messages([
-    ("system", "You are a chatbot which only fetches information from Wikipedia. "
-               "Answer strictly in JSON matching the given schema."),
+    ("system", "You are a chatbot which only fetches information from Wikipedia. "),
     ("human", "Provide me the information about this personality: {personality}")
 ])
 
