@@ -6,14 +6,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-gpt_llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
-
 chat_prompt_template =  ChatPromptTemplate(
     [
         ("system","You are an AI system that focus on generating new articles."),
         ("human","Please help in generating a new article on a topic: \n\n {topic}")
     ]
 )
+
+gpt_llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
 parser = StrOutputParser()
 
@@ -25,7 +25,7 @@ def word_count(strvalue):
 def word_lower(strvalue):
     return strvalue.lower()
 
-paralle_runnable = RunnableParallel(
+parallel_runnable = RunnableParallel(
     { 
         "article":RunnablePassthrough(),
         "word_count":RunnableLambda(word_count),
@@ -33,5 +33,5 @@ paralle_runnable = RunnableParallel(
      }
 )
 
-final_runnable = sequence_runnable | paralle_runnable
+final_runnable = sequence_runnable | parallel_runnable
 print(final_runnable.invoke({"topic":"Black Hole in 30 words"}))
