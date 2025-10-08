@@ -1,3 +1,4 @@
+#create a chatbot with a chat history in a simple list
 from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 

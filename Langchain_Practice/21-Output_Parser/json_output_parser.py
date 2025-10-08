@@ -1,5 +1,5 @@
 ##The json strcutured output can be used for the open source llm which do not work well with with_structured_output
-##But biggest drawback of JSON output parser is it doesn't enforce data validation like pydantic
+##But biggest drawback of JSON output parser is it doesn't enforce schema and data validations
 
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import PromptTemplate

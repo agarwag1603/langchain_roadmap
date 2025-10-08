@@ -3,6 +3,9 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import Chroma
 from langchain.tools.retriever import create_retriever_tool
+from dotenv import load_dotenv
+
+load_dotenv()
 
 pdf_loader=PyPDFLoader("Langchain_Practice/24-Runnable_E2E/RentalConditions.pdf")
 
