@@ -1,3 +1,5 @@
+##Contextual Compression Retriever only fetches those documents which have two very different semantic meanings in a paragraph.  
+
 from langchain.retrievers import ContextualCompressionRetriever
 from langchain.retrievers.document_compressors import LLMChainExtractor
 from langchain_core.documents import Document

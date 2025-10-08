@@ -1,3 +1,4 @@
+##All types of search based retrievers -  similarity search/Maximal Marginal Relevance/Contextual Compression Retriever
 from langchain_core.documents import Document
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import Chroma

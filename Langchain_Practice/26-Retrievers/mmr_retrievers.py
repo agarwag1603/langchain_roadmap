@@ -37,7 +37,7 @@ docs = [
 openai_embedding = OpenAIEmbeddings(model="text-embedding-3-small",dimensions=384)
 vectorstore= Chroma.from_documents(docs, openai_embedding)
 
-print("Output with lambda_mult:1")
+print("Output with lambda_mult:1 for Maximal ")
 retriever_mmr = vectorstore.as_retriever(search_type="mmr", search_kwargs={"k": 3, "lambda_mult": 1})
 results = retriever_mmr.invoke("Glacier and ice")
 for r in results:

@@ -29,7 +29,7 @@ print(chain.invoke(
 "who is the main character of the show 'The Office?'"  
 ))
 
-# #Output
+# Output
 # The main character of the show 'The Office' is Michael Scott, portrayed by Steve Carell, who is the regional manager of Dunder Mifflin in Scranton, Pennsylvania.
 
 
