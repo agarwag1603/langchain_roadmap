@@ -11,9 +11,6 @@ load_dotenv()
 
 gpt_llm = ChatOpenAI(model="gpt-4o-mini")
 
-load_dotenv()
-
-
 docs = [
     Document(
         page_content="""Python is a high-level programming language known for its readability and vast ecosystem of libraries. 
