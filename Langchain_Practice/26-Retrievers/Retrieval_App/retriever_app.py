@@ -1,7 +1,8 @@
 ##Retrievers type with streamlit app - Retrieval_Search_App.png is added to the project 
 import streamlit as st
 from langchain_core.documents import Document
-from langchain_openai import OpenAIEmbeddings, ChatOpenAI
+from langchain_openai import OpenAIEmbeddings
+from langchain_openai import ChatOpenAI
 from langchain_community.vectorstores import Chroma
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from dotenv import load_dotenv

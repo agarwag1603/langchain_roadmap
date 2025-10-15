@@ -25,7 +25,6 @@ general_chat_chain = chat_prompts | gpt_llm | output_parser  # for passing into 
 
 if topic:
     # ---------- Step 1: General context ----------
-    st.subheader(f"General context about {topic}")
     response_placeholder = st.empty()
     full_response = ""
 
