@@ -3,7 +3,7 @@ import streamlit as st
 import uuid
 from dotenv import load_dotenv
 import sqlfile  # Your SQLite helper
-import pdf_rag_loader_tool, online_tools, math_tool
+import pdf_rag_loader_tool, online_tools, math_tool,pdf_rag_loader_tool2
 from langchain.agents import AgentExecutor, create_openai_tools_agent
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.chat_history import BaseChatMessageHistory, InMemoryChatMessageHistory
@@ -21,6 +21,7 @@ tools = [
     online_tools.arxiv_query,
     online_tools.wikipedia_query,
     pdf_rag_loader_tool.retriver_tool,
+    pdf_rag_loader_tool2.retriver_tool_policy,
     math_tool.add,
     math_tool.multiply,
 ]
